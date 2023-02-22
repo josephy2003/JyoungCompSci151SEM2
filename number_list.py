@@ -1,42 +1,46 @@
-import time
-
-#intro message
-greetings_message_1 = "Hello there! ;)"
-greetings_message_2 = "I am a calculator which converts | Fahrenheit --> Celsius |"
-to_continue = "PRESS 'RETURN' TO CONTINUE"
-message = "*** Heat Index Calculator ***"
-
-#instruction q's
-question_1 = "Please Enter A Number ***ANYWHERE BETWEEN 1-200***"
-
-ai_responses = ['Hello there! ;)', 'PRESS *RETURN* TO CONTINUE', 'I am a calculator which converts | Fahrenheit --> Celsius |', '           *** Heat Index Calculator ***']
-
-ai_questions = ['How many locations?: ', 'Decimal precision for calculations [1--4]: ',
-                'Enter name of Location(s): ']
-
-def saysomething():
-    print(ai_responses[0])
-    time.sleep(1)
-    input(ai_responses[1])
-    time.sleep(1.5)
-    print(ai_responses[2], end="\n")
-    time.sleep(1)
-    print("\n", "\n", ai_responses[3], end=" ")
-    time.sleep(2.5)
-    return
-
-saysomething()
-
-def temps():
-    ['Enter air temperature [in deg F]', 'Enter relative humidity [in percentage]']
 
 
-def asksquestions():
-    int(input("\n", ai_questions[0]))
 
 
-asksquestions()
+def main():
+    print("Heat Index calculator")
+    num_Location = int(input("How many locations?"))
+    if num_Location <= 0:
+        print("Error!")
+        exit(-1)
+def precision():
+    int(input("Enter the precise decimal"))
 
-if __name__ == '__number_list__'
 
+
+
+if precision <1 or precision >4:
+    print("Error!")
+    exit(-1)
+    temperatures = []
+    humidities = []
+    HIs = []
+    Locations = []
+
+    for x in range(num_Location):
+        location = input(f"Enter a location: {x + 1}")
+        temperature = float(input("Enter the air temperature"))
+        # we need to get the temp from here
+        humidity = float(input("What is the Humidity level [in a percentage]"))
+        HI = -42.379 + 2.04901523 * temperature + 10.14333127 * humidity - 0.22475541 * temperature * humidity - 0.00683783 * temperature * \
+             temperature - 0.05481717 * humidity * humidity + 0.00122874 * temperature * temperature * humidity + 0.00085282 * temperature * humidity * humidity - 0.00000199 * temperature * temperature * humidity * humidity
+        print("The Heat index is:", round(HI, precision))
+        print(temperatures.append(temperature))
+        print(humidity.append(humidity))
+        (HIs.append(HI))
+        Locations.append(location)
+        print(HIs)
+        print(Locations)
+        print(location)
+        print(temperature)
+    print("The lowest heat index is:", end="")
+    print(min(HIs))
+    average_HI = HI + HI // num_Location
+    print("The Average HI is:", average_HI, "Deg F")
+    average_temperature = temperature + temperature // num_Location
 
