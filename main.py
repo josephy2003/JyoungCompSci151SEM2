@@ -24,22 +24,34 @@ pause()
 
 
 greetings_message_1 = "Hello there! ; )"
-greetings_message_2 = "I am a calculator which converts | Fahrenheit --> Celsius |"
+greetings_message_2 = """I am a calculator, I can convert ' \
+                         
+                                
+                                | Fahrenheit --> Celsius |"""
 to_continue = " PRESS 'RETURN' TO CONTINUE"
 message = "*** Heat Index Calculator ***" \
           ""
 
 # instruction q's
 question_1 = "Please Enter A Number ***ANYWHERE BETWEEN 1-200***"
-
-ai_responses = ['Hello there! ;)', 'PRESS *RETURN* TO CONTINUE',
+#                     0                     1
+ai_responses = ['Hello there! ;)','PRESS *RETURN* TO CONTINUE'
+    ,
+#                                2                             3
+                '\n'
                 'I am a calculator which converts | Fahrenheit --> Celsius |',
+#                                         4
                 '           *** Heat Index Calculator ***']
 
-ai_questions = ['How many locations?: ', 'Decimal precision for calculations [1--4]: ',
-                'Enter name of Location(s): ']
+#                                0
+ai_questions = ["""Insert 3 different location names.
 
 
+
+Name Of Location(1) """, 'Name Of Location(2) ', 'Name Of Location(3) ', 'Decimal precision for calculations [1--4]: ']
+#                                 2                        3                                   4
+
+#          1
 
 
 def saysomething():
@@ -51,50 +63,53 @@ def saysomething():
     time.sleep(1)
     print("\n", "\n", ai_responses[3], end=" ")
     time.sleep(2.5)
-    return
+
 
 
 saysomething()
 
 f_c = ['Enter air temperature [in deg F]', 'Enter relative humidity [in percentage]']
 
+user_input = input()
 
 def asksquestions():
+    print(""
+          "")
+    input("""Insert 3 different location names. \n
+    Name Of Location(1) """)
+    input("""Name Of Location(2) """)
+    input(ai_questions[2])
+    input(ai_questions[3])
 
-    int(input(ai_questions[0]))
-    int(input(ai_questions[1]))
-    int(input(ai_questions[2]))
-
-
-
-asksquestions()
 
 
 
 
 def prompt():
-    print(""
-            "", "\n")
-    L = input(int(input(ai_questions[0]))
+    print("""
+    
+        """),
+    LN = input("How Many Loctions Do You want?")
+    if LN > 0
+        print("Location", {LN})
+    L = input(ai_questions[0])
     pause()
-    LM = input("Then, the location name(s).")
+    LM = (input(ai_questions[1])),
     pause()
-    dec_precison = input("Select decimal precision for th calculations [1--4]:")
+    dec_precison = int(input(ai_questions[2])),
     pause()
-    x = round(5.76543, 4)
-    T = float(input("Please Enter designated °F."))
-    R = float(input(""))
-
-    HI = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R - 0.00683783*T*T - 0.05481717*R*R\
+    x = round(5.76543, 4),
+    T = float(input("Please Enter designated °F.")),
+    R = float(input("")),
+    HI = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R- 0.00683783*T*T - 0.05481717*R*R\
      + 0.00122874*T*T*R + 0.00085282*T*R*R - 0.00000199*T*T*R*R
-    location_list = []
-
-
+    print(LN)
+    print(L)
+    print(LM)
+    print(T)
+    print(HI)
 
 prompt()
-
-
-
 
 
 
