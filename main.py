@@ -1,4 +1,6 @@
 import time
+import sys
+
 
 def animate():
     time.sleep(.5)
@@ -16,106 +18,72 @@ def animate():
 
 animate()
 
-
-def pause():
-    time.sleep(1)
-
-pause()
-
-
+# message
 greetings_message_1 = "Hello there! ; )"
-greetings_message_2 = """I am a calculator, I can convert ' \
-                         
-                                
+greetings_message_2 = """I am a calculator, I can convert... \
+
+
                                 | Fahrenheit --> Celsius |"""
 to_continue = " PRESS 'RETURN' TO CONTINUE"
 message = "*** Heat Index Calculator ***" \
           ""
 
-# instruction q's
-question_1 = "Please Enter A Number ***ANYWHERE BETWEEN 1-200***"
-#                     0                     1
-ai_responses = ['Hello there! ;)','PRESS *RETURN* TO CONTINUE'
-    ,
-#                                2                             3
-                '\n'
-                'I am a calculator which converts | Fahrenheit --> Celsius |',
-#                                         4
-                '           *** Heat Index Calculator ***']
 
-#                                0
-ai_questions = ["""Insert 3 different location names.
-
-
-
-Name Of Location(1) """, 'Name Of Location(2) ', 'Name Of Location(3) ', 'Decimal precision for calculations [1--4]: ']
-#                                 2                        3                                   4
-
-#          1
-
-
-def saysomething():
-    print(ai_responses[0])
+################################################################
+def main():
+    Location = []
+    temperature = []
+    humidity = []
+    heat_index = []
+    print(greetings_message_1, "\n")
     time.sleep(1)
-    input(ai_responses[1])
-    time.sleep(1.5)
-    print(ai_responses[2], end="\n")
-    time.sleep(1)
-    print("\n", "\n", ai_responses[3], end=" ")
-    time.sleep(2.5)
-
-
-
-saysomething()
-
-f_c = ['Enter air temperature [in deg F]', 'Enter relative humidity [in percentage]']
-
-user_input = input()
-
-def asksquestions():
+    print(greetings_message_2, end=" ")
     print(""
+          ""
+
           "")
-    input("""Insert 3 different location names. \n
-    Name Of Location(1) """)
-    input("""Name Of Location(2) """)
-    input(ai_questions[2])
-    input(ai_questions[3])
-
-
-
-
-
-def prompt():
+    time.sleep(1)
     print("""
-    
-        """),
-    LN = input("How Many Loctions Do You want?")
-    if LN > 0
-        print("Location", {LN})
-    L = input(ai_questions[0])
-    pause()
-    LM = (input(ai_questions[1])),
-    pause()
-    dec_precison = int(input(ai_questions[2])),
-    pause()
-    x = round(5.76543, 4),
-    T = float(input("Please Enter designated °F.")),
-    R = float(input("")),
-    HI = -42.379 + 2.04901523*T + 10.14333127*R - 0.22475541*T*R- 0.00683783*T*T - 0.05481717*R*R\
-     + 0.00122874*T*T*R + 0.00085282*T*R*R - 0.00000199*T*T*R*R
-    print(LN)
-    print(L)
-    print(LM)
-    print(T)
-    print(HI)
 
-prompt()
+            """)
+    num_location = int(input("How Many locations would you like?: "))
+    if num_location <= 0:
+        print("Error!")
+        exit(-1)
+        # if num_Location >= 1:
+        #     L = input(""
+        #
+        #                "Location Name: ", {[x-x]- num_location})
+        #     if L > 1:
+        #         print(f"Location: ", {num_location + 1 == x}, ": ")
+
+    precision = int(input("Enter the precise decimal [0--4] *3 is reccomended* "))
+    if precision < 1 or precision > 4:
+        print("Uh-oh, numbers ONLY 0-4!")
+        exit(-1)
+    for x in range(num_location):
+
+        L = input("Location Name: ")
+        if num_location > 1:  # Location
+            print("Location ", end=f"{x + 1} ")
+        T = float(input("Enter the air temperature: "))
+        R = float(input("What is the Humidity level [in a percentage]: "))
+        HI = -42.379 + 2.04901523 * T + 10.14333127 * R - 0.22475541 * T * R - 0.00683783 * T * T - 0.05481717 * R * R \
+             + 0.00122874 * T * T * R + 0.00085282 * T * R * R - 0.00000199 * T * T * R * R
+        animate()
+        time.sleep(.50)
+        print("The Heat index is:", round(HI, precision))
+        temperature.append(T)
+        humidity.append(HI)
+        Location.append(L)
+        heat_index.append(HI)
+        animate()
+        time.sleep(.50)
+        print("The lowest heat index is: ", end="")
+        print(min(heat_index))
+    averaged_temperature = T + T // num_location
+    average_HI = HI + HI // num_location  # need to move this out of for loop
+    print("The Average HI is:", average_HI, "Deg F")
 
 
-
-
-
-
-
-
-
+main()
